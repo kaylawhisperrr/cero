@@ -1,6 +1,7 @@
 
 
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import pickle
 import os
@@ -36,3 +37,15 @@ for cookie in saved_cookies:
 
 driver2.refresh()  # 刷新页面，应用cookies
 # 现在应该已经是登录状态了！
+
+
+# 主线任务2——发弹幕——搜索爱情公寓，在“爱情公寓爆笑合集77，休息下饭熬夜必备”视频开头发送弹幕：时代的眼泪
+search_box = driver.find_element(By.CLASS_NAME, "nav-search-content")
+search_box.send_keys("爱情公寓" + Keys.RETURN)
+
+card_goal = driver.find_element(By.CSS_SELECTOR, '#i_cecream > div > div:nth-child(2) > div.search-content--gray.search-content > div > div > div > div.video.i_wrapper.search-all-list > div > div:nth-child(3) > div > div.bili-video-card__wrap > div.bili-video-card__info > div > a > h3')
+
+card_goal.click()
+
+time.sleep(5)
+
